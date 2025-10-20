@@ -1,0 +1,12 @@
+{
+  "name": "edubridge",
+  "version": "1.0.0",
+  "description": "EduBridge - Quality Education Platform",
+  "scripts": {
+    "dev": "python app.py",
+    "start": "python app.py",
+    "build": "echo 'Flask application - no build needed'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

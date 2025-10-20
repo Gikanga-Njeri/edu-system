@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBridge - Quality Education for All</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-book"></i> EduBridge
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="alert('Flask application required. Please run: python app.py')">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="alert('Flask application required. Please run: python app.py')">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container mt-4">
+            <div class="alert alert-info">
+                <h4 class="alert-heading"><i class="bi bi-info-circle"></i> Preview Mode</h4>
+                <p>This is a static preview of the EduBridge UI. To access the full application with authentication and database functionality:</p>
+                <ol>
+                    <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+                    <li>Run the Flask server: <code>python app.py</code></li>
+                    <li>Visit <code>http://localhost:5000</code></li>
+                </ol>
+            </div>
+
+            <div class="hero-section text-center py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-3 fw-bold text-white mb-4">
+                            <i class="bi bi-mortarboard-fill"></i> Welcome to EduBridge
+                        </h1>
+                        <p class="lead mb-4 text-white">
+                            Connecting students and tutors worldwide to support quality education for all.
+                            Inspired by UN Sustainable Development Goal 4: Quality Education.
+                        </p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
+                            <button class="btn btn-light btn-lg px-4" onclick="alert('Please run the Flask app: python app.py')">
+                                <i class="bi bi-person-plus"></i> Get Started
+                            </button>
+                            <button class="btn btn-outline-light btn-lg px-4" onclick="alert('Please run the Flask app: python app.py')">
+                                <i class="bi bi-box-arrow-in-right"></i> Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 py-5">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon bg-primary text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                <i class="bi bi-people-fill fs-1"></i>
+                            </div>
+                            <h3 class="card-title">Find Expert Tutors</h3>
+                            <p class="card-text">
+                                Search and connect with qualified tutors across various subjects.
+                                Get personalized learning support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon bg-success text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                <i class="bi bi-calendar-check-fill fs-1"></i>
+                            </div>
+                            <h3 class="card-title">Book Sessions</h3>
+                            <p class="card-text">
+                                Schedule study sessions with your chosen tutors at your convenience.
+                                Flexible and easy booking system.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon bg-warning text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                <i class="bi bi-award-fill fs-1"></i>
+                            </div>
+                            <h3 class="card-title">Share Knowledge</h3>
+                            <p class="card-text">
+                                Register as a tutor and help students achieve their learning goals.
+                                Make a difference in education.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-5">
+                <div class="col-12">
+                    <div class="card bg-light border-0">
+                        <div class="card-body text-center p-5">
+                            <h2 class="mb-4">Supporting UN SDG 4</h2>
+                            <p class="lead">
+                                EduBridge is committed to ensuring inclusive and equitable quality education
+                                and promoting lifelong learning opportunities for all.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-5">
+                <div class="col-12">
+                    <div class="card shadow-lg">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="bi bi-gear"></i> Technology Stack</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5><i class="bi bi-server"></i> Backend</h5>
+                                    <ul>
+                                        <li>Flask (Python 3.x)</li>
+                                        <li>Flask-Login (Authentication)</li>
+                                        <li>bcrypt (Password hashing)</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5><i class="bi bi-database"></i> Database</h5>
+                                    <ul>
+                                        <li>Supabase (PostgreSQL)</li>
+                                        <li>Row Level Security</li>
+                                        <li>Real-time capabilities</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5><i class="bi bi-brush"></i> Frontend</h5>
+                                    <ul>
+                                        <li>HTML5, CSS3</li>
+                                        <li>Bootstrap 5</li>
+                                        <li>JavaScript</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5><i class="bi bi-shield-check"></i> Security</h5>
+                                    <ul>
+                                        <li>Password encryption</li>
+                                        <li>Session management</li>
+                                        <li>Role-based access control</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0 text-muted">
+                <i class="bi bi-globe"></i> EduBridge - Supporting UN SDG 4: Quality Education
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
