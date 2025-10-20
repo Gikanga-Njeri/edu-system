@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Tutor Dashboard - EduBridge{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="bi bi-mortarboard-fill"></i> Tutor Dashboard
+        </h1>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    <i class="bi bi-book"></i> My Subjects
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if my_subjects %}
+                    <div class="list-group">
+                        {% for subject in my_subjects %}
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>{{ subject.name }}</strong>
+                                    <p class="mb-0 text-muted small">{{ subject.description }}</p>
+                                </div>
+                                <a href="{{ url_for('remove_subject', subject_id=subject.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Remove this subject?')">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="text-muted">
+                        <i class="bi bi-info-circle"></i> You haven't added any subjects yet. Add subjects below to start tutoring!
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">
+                    <i class="bi bi-plus-circle"></i> Add New Subject
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('add_subject') }}">
+                    <div class="mb-3">
+                        <label for="subject_id" class="form-label">Select Subject</label>
+                        <select class="form-select" id="subject_id" name="subject_id" required>
+                            <option value="">Choose a subject...</option>
+                            {% for subject in all_subjects %}
+                                <option value="{{ subject.id }}">{{ subject.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">
+                        <i class="bi bi-plus"></i> Add Subject
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">
+                    <i class="bi bi-calendar-event"></i> Session Requests
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if session_requests %}
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Email</th>
+                                    <th>Date & Time</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for session in session_requests %}
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-person"></i> {{ session.student_name }}
+                                        </td>
+                                        <td>
+                                            <small>{{ session.student_email }}</small>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-calendar"></i> {{ session.date.strftime('%Y-%m-%d %H:%M') }}
+                                        </td>
+                                        <td>
+                                            {% if session.status == 'pending' %}
+                                                <span class="badge bg-warning text-dark">
+                                                    <i class="bi bi-clock"></i> Pending
+                                                </span>
+                                            {% elif session.status == 'confirmed' %}
+                                                <span class="badge bg-success">
+                                                    <i class="bi bi-check-circle"></i> Confirmed
+                                                </span>
+                                            {% else %}
+                                                <span class="badge bg-secondary">
+                                                    <i class="bi bi-check-all"></i> Completed
+                                                </span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if session.status == 'pending' %}
+                                                <a href="{{ url_for('update_session', session_id=session.id, status='confirmed') }}" class="btn btn-sm btn-success me-1">
+                                                    <i class="bi bi-check"></i> Confirm
+                                                </a>
+                                            {% elif session.status == 'confirmed' %}
+                                                <a href="{{ url_for('update_session', session_id=session.id, status='completed') }}" class="btn btn-sm btn-secondary">
+                                                    <i class="bi bi-check-all"></i> Complete
+                                                </a>
+                                            {% else %}
+                                                <span class="text-muted small">No actions</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="text-muted mb-0">
+                        <i class="bi bi-info-circle"></i> No session requests yet. Students will be able to book sessions once you add subjects.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
